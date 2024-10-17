@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <table>
+                <thead>
+                    <th>
+                        Pais
+                    </th>
+                    <th>
+                        Prefijo
+                    </th>
+                </thead>
+                <tbody>
+                    @for (pais of listaTelefonosPaises; track pais.nombrePais){
+                        <tr>
+                            <td>
+                                {{pais.nombrePais}}
+                                <img [src]="getImagenBandera(pais.bandera)" alt="">
+                            </td>
+                            <td>
+                                @for (prefijo of pais.prefijo; track prefijo) {
+                                    + ({{prefijo}}) &nbsp;
+                                } @empty {No hay prefijos en la lista}
+                            </td>
+                        </tr>
+                    } @empty {No se encontraron paises}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
